@@ -12,6 +12,10 @@ Inclua os arquivos fontes no seu projeto e faça a chamada no seu código:
 
 Não esqueça de adicionar o `DS1307.c` na compilação.
 
+#### Dependências
+
+Este projeto depende da [biblioteca `Conversions` oferecido pelo MikroC](https://download.mikroe.com/documents/compilers/mikroc/pic/help/conversions_library.htm).
+
 ### Documentação
 
 :1234: __TIME_STRUCT__
