@@ -30,13 +30,13 @@ Todos os campos são do tipo `unsigned short`.
 
 Inicia o barramento __I2C__ e realiza a primeira chamada para __DS1307_GETDATE()__.
 
-:twisted_rightwards_arrows: __DS1307_SetDate(TIME_STRUCT *)__
+:twisted_rightwards_arrows: __DS1307_SetDate(TIME_STRUCT \*)__
 
 Recebe um parâmetro que é um ponteiro para um TIME_STRUCT.
 
 Configura a hora do relógio conforme o TIME_STRUCT passado.
 
-:arrow_heading_up: __DS1307_GetDate()__
+:arrow_heading_up: __DS1307_GetDate(TIME_STRUCT \*)__
 
 Recebe um parâmetro que é um ponteiro para o TIME_STRUCT.
 
