@@ -65,13 +65,13 @@ void DS1307_GetDate(TIME_STRUCT *Pts)
   I2C1_Stop();                      // envia um sinal de STOP
 }
 
-TIME_STRUCT DS1307_Now()
+TIME_STRUCT DS1307_GetNow()
 {
   DS1307_GetDate(&DS1307_instance);
   return DS1307_instance;
 }
 
-TIME_STRUCT DS1307_GetNow()
+TIME_STRUCT DS1307_Now()
 {
   return DS1307_instance;
 }
