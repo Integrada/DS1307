@@ -12,23 +12,21 @@
 
 typedef struct
 {
-  unsigned short year;      //0..99
-  unsigned short month;     //1..12
-  unsigned short day;       //1..31
-  unsigned short week;      //1..7
-  unsigned short hour;      //0..23
-  unsigned short min;       //0..59
-  unsigned short sec;       //0..59
-} TIME_STRUCT;
+  unsigned short ss;       // seconds
+  unsigned short mn;       // minutes
+  unsigned short hh;       // hours
+  unsigned short md;       // day in month, from 1 to 31
+  unsigned short wd;       // day in week, sunday=1, monday=2, .... sunday=7
+  unsigned short mo;       // month number, from 1 to 12 (and not from 0 to 11 as with unix C time !)
+  unsigned short yy;       // year Y2K compliant, from 1892 to 2038
+} TimeStruct;
 
 void DS1307_Init();
+void DS1307_SetDate(TimeStruct *);
+void DS1307_GetDate(TimeStruct *);
+void DS1307_Loop(unsigned short);
+TimeStruct DS1307_Now();
+long DS1307_Timestamp();
 
-void DS1307_SetDate(TIME_STRUCT *);
-
-void DS1307_GetDate(TIME_STRUCT *);
-
-TIME_STRUCT DS1307_Now();
-
-TIME_STRUCT DS1307_GetNow();
 
 #endif
