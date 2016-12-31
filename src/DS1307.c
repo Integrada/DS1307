@@ -4,11 +4,13 @@ unsigned short DS1307_loopControl = 0;
 unsigned short DS1307_loopLast = 0;
 // Jan 1st, 2017, Sunday, 00:00:00
 TimeStruct DS1307_instance = { 0, 0, 0, 1, 1, 1, 2017 };
+unsigned long DS1307_timestamp = 0;
 
 void DS1307_Init()
 {
   I2C1_Init(100000);
   DS1307_GetDate(&DS1307_instance);
+  DS1307_timestamp = Time_dateToEpoch(&DS1307_instance);
 }
 
 void DS1307_SetDate(TimeStruct *Pts)
@@ -49,6 +51,7 @@ void DS1307_Loop(unsigned short loopInterval)
   if ((unsigned short)(DS1307_loopControl - DS1307_loopLast) >= loopInterval) {
     DS1307_GetDate(&DS1307_instance);
     DS1307_timestamp = Time_dateToEpoch(&DS1307_instance);
+    DS1307_loopLast = DS1307_loopControl;
   }
   DS1307_loopControl++;
 }
